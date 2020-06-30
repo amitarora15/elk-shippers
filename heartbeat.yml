@@ -1,0 +1,13 @@
+heartbeat.monitors:
+- type: http
+  id: elastic-status
+  name: Elastic Status
+  hosts: ["http://localhost:9200"]
+  schedule: '@every 5s'
+- type: http
+  id: utsav-notification-status
+  name: Utsav Notification Status
+  hosts: ["http://localhost:8081/utsav-notification/actuator"]
+  schedule: '@every 5s'
+output.elasticsearch:
+  hosts: ["localhost:9200"]
