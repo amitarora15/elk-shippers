@@ -1,0 +1,10 @@
+filebeat.inputs:
+- type: log
+  enabled: true
+  paths:
+    - /Users/amitarora/Amit/workspace/utsav-workspace/utsav-notification-services/logs/utsav-notification-lib_6.log
+  multiline.pattern: '^[[:space:]]+(at|\.{3})[[:space:]]+\b|^Caused by:'
+  multiline.negate: false
+  multiline.match: after
+output.logstash:
+    hosts: ["0.0.0.0:5060"]

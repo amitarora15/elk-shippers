@@ -1,0 +1,16 @@
+filebeat.inputs:
+- type: log
+  enabled: true
+  paths:
+    - /Users/amitarora/Amit/workspace/utsav-workspace/utsav-services/UtsavServices/logs/utsav-audit*.log
+  fields:
+    app_id: utsav-services
+    env: dev
+  json.message_key: operation 
+  json.keys_under_root: false 
+  json.overwrite_keys : true
+  json.add_error_key: true
+output.elasticsearch:
+  hosts: ["localhost:9200"]
+  template.name: filebeat
+  template.path: filebeat.template.json

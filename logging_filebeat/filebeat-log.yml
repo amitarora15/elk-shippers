@@ -1,0 +1,13 @@
+filebeat.inputs:
+- type: log
+  enabled: true
+  paths:
+    - /Users/amitarora/Amit/workspace/utsav-workspace/utsav-notification-services/logs/utsav-notification*.log 
+  fields:
+    app_id: utsav-notification
+    env: dev
+  multiline.pattern: '^[[:space:]]+(at|\.{3})[[:space:]]+\b|^Caused by:'
+  multiline.negate: false
+  multiline.match: after
+output.elasticsearch:
+  hosts: ["localhost:9200"]
